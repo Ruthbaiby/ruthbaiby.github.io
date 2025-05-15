@@ -38,7 +38,7 @@ Explore my key projects below:
 
 ## 📫 Let’s Connect
 
-- **Email**: [holusanyahruth@gmail.com](mailto:holusanyahruth@gmail.com)  
+- **Email**: [ruth.olusanya@yahoo.com](mailto:ruth.olusanya@yahoo.com)  
 - **LinkedIn**: [Ruth Olusanya](https://linkedin.com/in/ruth-olusanya)  
 - **Portfolio Website**: [Your Web Portfolio Link]
 
