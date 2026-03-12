@@ -1,278 +1,694 @@
-<!DOCTYPE HTML>
-<!--
-	Portfolio by Ruth
--->
-<html>
-	<head>
-		<title>Portfolio by Ruth</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruth Olusanya — Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="container">
-					<li><a href="#profile">Profile</a></li>
-					<li><a href="#work">Work</a></li>
-					<li><a href="#skills">Skills</a></li>
-					<li><a href="#project">Project</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
+    :root {
+      --navy: #0B1C2C;
+      --navy-mid: #132438;
+      --navy-light: #1E3A52;
+      --gold: #C9A84C;
+      --gold-light: #E8C96A;
+      --cream: #F5F0E8;
+      --white: #FFFFFF;
+      --text-muted: #8A9BAD;
+      --border: rgba(201,168,76,0.2);
+    }
 
-		<!-- Home -->
-			<article id="profile" class="wrapper style1">
-				<div class="container">
-					<div class="row">
-						<div class="col-4 col-5-large col-12-medium">
-							<span class="image fit"><img src="images/r.png" alt="" /></span>
-						</div>
-						<div class="col-8 col-7-large col-12-medium">
-							<header>
-								<h1>Hi. I'm <strong>Ruth Olusanya</strong>.</h1>
-							</header>
-							<p>I am a <strong>Data Analyst</strong> with a background in <strong>Statistics</strong> based in <strong>Nigeria</strong>. I am passionate about <a href="https://drive.google.com/file/d/1inA-Eax78Cy3H2n_EwJcd9wQq0QXrEqk/view?usp=share_link">Technology,</a> Data, <a href="https://github.com/Ruthbaiby/Introduction-to-Programming-with-Kaggle/">Programming,</a> &amp <a href="https://drive.google.com/file/d/1inA-Eax78Cy3H2n_EwJcd9wQq0QXrEqk/view?usp=share_link"> Finance.</a></p>
-							<p>I have hands-on experience with tools like: <strong>Python, Excel, Power BI, IBM SPSS, and R (basic),</strong> and I'm currently undergoing training on <strong>SQL and Power Apps</strong> to broaden my toolkit .</p>
-							<p>My self-possessed goal is to help organizations and businesses make the right data-driven decisions. </p>
-							<p>Let’s work together to turn data into powerful insights. <a href="mailto:ruth.olusanya@yahoo.com">Get in touch</a></p>
+    html { scroll-behavior: smooth; }
 
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
 
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      background: rgba(11,28,44,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
 
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 5% 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-lines {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        repeating-linear-gradient(90deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 80px),
+        repeating-linear-gradient(180deg, rgba(201,168,76,0.04) 0px, rgba(201,168,76,0.04) 1px, transparent 1px, transparent 80px);
+    }
+    .hero-accent {
+      position: absolute; top: 10%; right: 0;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-block;
+      background: var(--border);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.35rem 0.9rem; border-radius: 2px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 900; line-height: 1.05;
+      color: var(--white);
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    .hero-name span { color: var(--gold); }
+    .hero-title {
+      font-size: 1.1rem; font-weight: 300; color: var(--text-muted);
+      margin: 1.2rem 0 1.8rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .hero-desc {
+      font-size: 0.97rem; line-height: 1.8; color: #A8BFCF;
+      max-width: 480px;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: var(--cream);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
 
-							<a href="#work" class="button large scrolly">Learn about what I do</a>
-						</div>
-					</div>
-				</div>
-			</article>
+    /* Hero right — stat cards */
+    .hero-right {
+      display: flex; flex-direction: column; align-items: flex-end;
+      gap: 1.2rem; position: relative; z-index: 1;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .stat-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      padding: 1.4rem 2rem;
+      width: 240px;
+      position: relative;
+    }
+    .stat-card::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; background: var(--gold);
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 900; color: var(--gold);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.08em; }
 
-		<!-- Work -->
-			<article id="work" class="wrapper style2">
-				<div class="container">
-					<header>
-						<h2>Here's some of the stuff I do.</h2>
-						<p>As a statistician and a freelance data analyst, I translate data into valuable & comprehensive insights. </p>
-					</header>
-					<div class="row aln-center">
-						<div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="icon featured fa-chart-bar"></span>
-								<h3>Data Analysis</h3>
-								<p> I am experienced in Statistical Analysis such as Regression Analysis & I use data visualization techniques to present the results. I use R, Python, Excel, SPSS etc.</p>
-							</section>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="icon solid featured fa-pen"></span>
-								<h3>Research and Project Writing</h3>
-								<p>Before and during data related projects, I give advice and suggestions on the progress of the project.</p>
-							</section>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<section class="box style1">
-								<span class="icon featured fa-edit"></span>
-								<h3>Typing, Editing and Proofreading</h3>
-								<p>I am experienced in English  translation projects as well as various tasks related to customer service support.</p>
-							</section>
-						</div>
-					</div>
-					<footer>
-						<p>My goal is to improve results, make the right decisions and save costs.</p>
-						<a href="#skills" class="button large scrolly">See some of my skills</a>
-					</footer>
-				</div>
-			</article>
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 5%; }
+    .section-label {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.15;
+    }
+    .section-title span { color: var(--gold); }
+    .section-header { margin-bottom: 3.5rem; }
+    .divider {
+      width: 60px; height: 2px;
+      background: var(--gold); margin-top: 1rem;
+    }
 
-		<!-- Skills -->
-			<article id="skills" class="wrapper style3">
-				<div class="container">
-					<header>
-						<h2>Here's some of my skill set.</h2>
-						<p>I recently expanded my skill set to topics including Operations Research, Time Series Analysis and I'm excited to keep learning new methods in a challenging and fast-paced environment.</p>
-					</header>
-					<div class="row">
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://github.com/Ruthbaiby/Python-Quiz" class="image featured"><img src="images/ap.jpg" alt="" /></a>
-								<h3><a href="https://github.com/Ruthbaiby/Python-Quiz">Analytical and Problem Solving Skills</a></h3>
-								<p>Logically evaluate the problems to identify and solve complex problems and develop rational solutions.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://drive.google.com/file/d/1-vQ1B989e9fp2kD40A-rhWZMCAmzpH2d/view?usp=share_link" class="image featured"><img src="images/is.jpg" alt="" /></a>
-								<h3><a href="https://drive.google.com/file/d/1-vQ1B989e9fp2kD40A-rhWZMCAmzpH2d/view?usp=share_link">Interpersonal Skills</a></h3>
-								<p>I use every day to communicate and interact with others, including listening, speaking and questioning skills.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a class="image featured"><img src="images/tm.jpg" alt="" /></a>
-								<h3><a>Time Management Skills</a></h3>
-								<p>Prioritize and schedule work to reduce stress and increase productivity.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://drive.google.com/file/d/1W-JlWfaSOobmZc0gKjBK3x3-2X0e8yG_/view?usp=share_link" class="image featured"><img src="images/cs.jpg" alt="" /></a>
-								<h3><a href="https://drive.google.com/file/d/1W-JlWfaSOobmZc0gKjBK3x3-2X0e8yG_/view?usp=share_link">Excellent Computer Skills</a></h3>
-								<p>Proficient in managing computer related tasks.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a href="https://github.com/Ruthbaiby/Intoduction-to-Financial-Maths" class="image featured"><img src="images/ms.jpg" alt="" /></a>
-								<h3><a href="https://github.com/Ruthbaiby/Intoduction-to-Financial-Maths">Strong Mathematical Skills</a></h3>
-								<p>Proficient in understanding numbers & solving basic mathematical problems.</p>
-							</article>
-						</div>
-						<div class="col-4 col-6-medium col-12-small">
-							<article class="box style2">
-								<a class="image featured"><img src="images/tw.jpg" alt="" /></a>
-								<h3><a>Teamwork and Collaborative Skills</a></h3>
-								<p>Foster a healthy work culture and environment where teams of individuals can achieve certain goals.</p>
-							</article>
-						</div>
-					</div>
-					<footer>
-						<p>Do you care to check out some of my recent projects?</p>
-						<a href="#project" class="button large scrolly">See some of my recent work here.</a>
-					</footer>
-				</div>
-			</article>
+    /* ── ABOUT ── */
+    #about { background: var(--navy-mid); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-text p {
+      font-size: 0.97rem; line-height: 1.9; color: #A8BFCF;
+      margin-bottom: 1.2rem;
+    }
+    .about-tools { margin-top: 2rem; }
+    .about-tools h4 { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem; }
+    .tools-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .tool-tag {
+      background: var(--navy-light);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-size: 0.8rem; font-weight: 500;
+      padding: 0.4rem 1rem;
+    }
+    .about-highlights { display: flex; flex-direction: column; gap: 1.5rem; }
+    .highlight-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--navy);
+      border: 1px solid var(--border);
+      transition: border-color 0.25s;
+    }
+    .highlight-item:hover { border-color: var(--gold); }
+    .highlight-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(201,168,76,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--gold);
+    }
+    .highlight-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+    .highlight-item p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
 
-		<!-- Project -->
-		<article id="project" class="wrapper style3">
-			<div class="container">
-				<header>
-					<h2>Taka a look at my recent work.</h2>
-					<p>I use various software packages for my projects such as R, Python, SPSS etc.</p>
-				</header>
-				<div class="row">
-					<div class="col-4 col-6-medium col-12-small">
-						<article class="box style2">
-							<a href="https://github.com/Ruthbaiby/Data-Cleaning-Analysis-and-Visualization" class="image featured"><img src="images/dc.jpg" alt="" /></a>
-							<h3><a href="https://github.com/Ruthbaiby/Data-Cleaning-Analysis-and-Visualization">Dashboard Using Excel</a></h3>
-							<p>Identifying and removing erroneous or unnecessary data from a data set to facilitate a more accurate analysis.</p>
-						</article>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<article class="box style2">
-							<a href="https://github.com/Ruthbaiby/EDA-using-Python-" class="image featured"><img src="images/edc.png" alt="" /></a>
-							<h3><a href="https://github.com/Ruthbaiby/EDA-using-Python-">Exploratory Data Analysis</a></h3>
-							<p>Analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods.</p>
-						</article>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<article class="box style2">
-							<a href="https://github.com/Ruthbaiby/Data-Visualization-On-Sales-Using-R" class="image featured"><img src="images/dv.jpg" alt="" /></a>
-							<h3><a href="https://github.com/Ruthbaiby/Data-Visualization-On-Sales-Using-R">Dashboard using Power BI</a></h3>
-							<p>Love telling a story by making beautiful and compelling presentations.</p>
-						</article>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<article class="box style2">
-							<a href="https://github.com/Ruthbaiby/Introduction-to-Natural-Language-Processing" class="image featured"><img src="images/NLP.jpg" alt="" /></a>
-							<h3><a href="https://github.com/Ruthbaiby/Introduction-to-Natural-Language-Processing">Natural Language Processing</a></h3>
-							<p>Natural language processing enables machines to understand and respond to text or voice data.</p>
-						</article>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<article class="box style2">
-							<a href="https://github.com/Ruthbaiby/Web-Scraping-on-Netflix" class="image featured"><img src="images/WS.jpg" alt="" /></a>
-							<h3><a href="https://github.com/Ruthbaiby/Web-Scraping-on-Netflix">Web Scraping</a></h3>
-							<p>Extraction, manipulation and storing of data from a website.</p>
-						</article>
-					</div>
-					<div class="col-4 col-6-medium col-12-small">
-						<article class="box style2">
-							<a href="https://github.com/Ruthbaiby/Introduction-to-Forecasting-" class="image featured"><img src="images/fc.jpg" alt="" /></a>
-							<h3><a href="https://github.com/Ruthbaiby/Introduction-to-Forecasting-">Forecasting</a></h3>
-							<p>Estimations that are predictive in determining the direction of future trends.</p>
-						</article>
-					</div>
-				</div>
-				<footer>
-					<p>Will you like to make more enquiries?</p>
-					<a href="#contact" class="button large scrolly">Get in touch with me here</a>
-				</footer>
-			</div>
-		</article>
+    /* ── SKILLS ── */
+    #skills { background: var(--navy); }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .skill-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .skill-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .skill-card-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .skill-card h3 { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.6rem; }
+    .skill-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+    .skill-bar-wrap { margin-top: 1.2rem; }
+    .skill-bar-label { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+    .skill-bar-bg { height: 3px; background: var(--navy-light); }
+    .skill-bar-fill { height: 3px; background: var(--gold); transition: width 1s ease; }
 
+    /* ── PROJECTS ── */
+    #projects { background: var(--navy-mid); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .project-card {
+      background: var(--navy);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+    .project-card-top {
+      padding: 1.8rem 1.8rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+      flex: 1;
+    }
+    .project-tag {
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 0.8rem;
+    }
+    .project-card h3 {
+      font-size: 1rem; font-weight: 600; color: var(--white);
+      margin-bottom: 0.7rem; line-height: 1.4;
+    }
+    .project-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.7; }
+    .project-card-bottom {
+      padding: 1rem 1.8rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .project-tech { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+    .tech-badge {
+      font-size: 0.68rem; padding: 0.2rem 0.6rem;
+      background: var(--navy-light); color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .project-link {
+      color: var(--gold); font-size: 0.8rem; text-decoration: none; font-weight: 600;
+      letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: gap 0.2s;
+    }
+    .project-link:hover { gap: 0.6rem; }
 
-		<!-- Contact -->
-			<article id="contact" class="wrapper style4">
-				<div class="container medium">
-					<header>
-						<h2>Have me make stuff for you?</h2>
-						<p>Fill in your details here and summarize what you will have me do for you.</p>
-					</header>
-					<div class="row">
-						<div class="col-12">
-							<form method="post" action="mailto:ruth.olusanya@yahoo.com">
-								<div class="row">
-									<div class="col-6 col-12-small">
-										<input type="text" name="name" id="name" placeholder="Name" />
-									</div>
-									<div class="col-6 col-12-small">
-										<input type="text" name="email" id="email" placeholder="Email" />
-									</div>
-									<div class="col-12">
-										<input type="text" name="subject" id="subject" placeholder="Subject" />
-									</div>
-									<div class="col-12">
-										<textarea name="message" id="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" /></li>
-											<li><input type="reset" value="Clear Form" class="alt" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</div>
-						<div class="col-12">
-							<hr />
-							<h3>Find me on ...</h3>
-							<ul class="social">
-								<li><a href="https://www.twitter.com/holusanyahruth/" target="_blank" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.facebook.com/Prutholusanya" target="_blank" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="https://mail.google.com/mail/holusanyahruth/" target="_blank" class="icon solid alt fa-envelope"><span class="label">Gmail</span></a></li>
-								<li><a href="https://www.instagram.com/rutholusanya/" target="_blank" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="https://https://www.linkedin.com/in/ruth-olusanya/details/certifications?profileUrn=urn%3Ali%3Afsd_profile%3AACoAACNRuGsBBWQowAD-ERfzsdfeDfc6qqz5z5k&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BjADDNKYtRluCwr4f4llq%2Fw%3D%3D" target="_blank" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="https://github.com/Ruthbaiby/" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
-								<!--
-								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
-								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
-								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
-								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
-								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
-								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
-								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
-								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
-								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
-								-->
-							</ul>
-							<hr />
-						</div>
-					</div>
-					<footer>
-						<ul id="copyright">
-							<li>&copy; Ruth Olusanya. All rights reserved.</li><li>Design: <a href="mailto:ruth.olusanya@yahoo.com">Ruthey</a></li>
-						</ul>
-					</footer>
-				</div>
-			</article>
+    /* ── CONTACT ── */
+    #contact { background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-info p { font-size: 0.97rem; color: #A8BFCF; line-height: 1.8; margin-bottom: 2rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-link-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.25s;
+    }
+    .contact-link-item:hover { border-color: var(--gold); }
+    .contact-link-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(201,168,76,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 0.9rem;
+    }
+    .contact-link-item span { font-size: 0.85rem; font-weight: 500; color: var(--cream); }
+    .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .form-group input,
+    .form-group textarea {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.25s;
+      resize: vertical;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { min-height: 120px; }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 0.8rem; color: var(--text-muted); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
 
-	</body>
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding-top: 7rem; }
+      .hero-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .stat-card { width: 180px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ruth Olusanya</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:ruth.olusanya@yahoo.com" class="btn btn-primary" style="padding:0.55rem 1.3rem;font-size:0.78rem;">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Data Analyst · Nigeria</div>
+    <h1 class="hero-name">Hi, I'm<br><span>Ruth Olusanya.</span></h1>
+    <p class="hero-title">Turning Complex Data Into Actionable Insight</p>
+    <p class="hero-desc">
+      A Statistics-trained data analyst with hands-on experience in Python, Excel, Power BI, R, and SPSS. I help organizations make smarter, data-driven decisions.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View My Work →</a>
+      <a href="mailto:ruth.olusanya@yahoo.com" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stat-card">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Tools & Technologies</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6</div>
+      <div class="stat-label">Data Projects</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Core Specialisations</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-label">About Me</div>
+      <h2 class="section-title">Statistics by Training.<br><span>Insight</span> by Passion.</h2>
+      <div class="divider" style="margin-bottom:1.8rem;"></div>
+      <p>
+        I'm a freelance Data Analyst based in Nigeria with a background in Statistics. My work spans data cleaning, exploratory analysis, visualisation, and predictive modelling — all oriented toward helping businesses and organisations make smarter decisions.
+      </p>
+      <p>
+        Beyond the numbers, I bring strong research, communication, and writing skills that make my insights accessible to both technical and non-technical audiences.
+      </p>
+      <p>
+        Currently expanding my toolkit with <strong style="color:var(--cream)">SQL</strong> and <strong style="color:var(--cream)">Power Apps</strong>, and always eager to take on challenging, high-impact projects.
+      </p>
+      <div class="about-tools">
+        <h4>Tools I Work With</h4>
+        <div class="tools-list">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Excel</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">IBM SPSS</span>
+          <span class="tool-tag">R</span>
+          <span class="tool-tag">SQL (learning)</span>
+          <span class="tool-tag">Power Apps (learning)</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-highlights reveal">
+      <div class="highlight-item">
+        <div class="highlight-icon">📊</div>
+        <div>
+          <h4>Data Analysis & Visualisation</h4>
+          <p>Statistical analysis, regression modelling, and compelling visual storytelling with Python, R, and Power BI.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🔬</div>
+        <div>
+          <h4>Research & Project Consulting</h4>
+          <p>End-to-end guidance on data-related projects — from research design to final report.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">✍️</div>
+        <div>
+          <h4>Technical Writing & Editing</h4>
+          <p>Clear, well-crafted documentation, editing, and English translation for professional audiences.</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🎓</div>
+        <div>
+          <h4>Continuous Learning</h4>
+          <p>Recently added Operations Research, Time Series Analysis, and NLP to my skillset — and still going.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header reveal">
+    <div class="section-label">Capabilities</div>
+    <h2 class="section-title">Skills &amp; <span>Expertise</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🐍</div>
+      <h3>Python</h3>
+      <p>Data wrangling, EDA, NLP, web scraping, and machine learning fundamentals using pandas, NumPy, scikit-learn, and BeautifulSoup.</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>80%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📈</div>
+      <h3>Excel & Power BI</h3>
+      <p>Advanced dashboards, pivot tables, data modelling, DAX formulas, and interactive visualisations that tell a clear story.</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>90%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📐</div>
+      <h3>Statistical Analysis</h3>
+      <p>Regression analysis, hypothesis testing, time series forecasting, and SPSS-based research methodologies.</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>85%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🔡</div>
+      <h3>R Programming</h3>
+      <p>Data visualisation with ggplot2 and statistical computing for academic and research-grade analysis.</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>65%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🧹</div>
+      <h3>Data Cleaning</h3>
+      <p>Identifying, removing, and correcting erroneous or inconsistent data to enable reliable downstream analysis.</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>88%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🤝</div>
+      <h3>Communication & Research</h3>
+      <p>Translating technical findings into clear narratives. Writing, editing, proofreading, and stakeholder-ready reports.</p>
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label"><span>Proficiency</span><span>92%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Recent <span>Projects</span></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-tag">Data Cleaning & Visualisation</div>
+        <h3>Dashboard Using Excel</h3>
+        <p>End-to-end data cleaning pipeline to remove erroneous records, followed by an interactive Excel dashboard for business reporting.</p>
+      </div>
+      <div class="project-card-bottom">
+        <div class="project-tech"><span class="tech-badge">Excel</span></div>
+        <a href="https://github.com/Ruthbaiby/Data-Cleaning-Analysis-and-Visualization" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-tag">Exploratory Analysis</div>
+        <h3>Exploratory Data Analysis with Python</h3>
+        <p>In-depth EDA using statistical graphics and visualisation libraries to surface patterns, outliers, and key characteristics of a dataset.</p>
+      </div>
+      <div class="project-card-bottom">
+        <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">Pandas</span></div>
+        <a href="https://github.com/Ruthbaiby/EDA-using-Python-" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-tag">Business Intelligence</div>
+        <h3>Sales Dashboard — Power BI</h3>
+        <p>Built a visually compelling sales dashboard using R and Power BI to track KPIs, trends, and regional performance at a glance.</p>
+      </div>
+      <div class="project-card-bottom">
+        <div class="project-tech"><span class="tech-badge">Power BI</span><span class="tech-badge">R</span></div>
+        <a href="https://github.com/Ruthbaiby/Data-Visualization-On-Sales-Using-R" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-tag">Machine Learning / NLP</div>
+        <h3>Natural Language Processing</h3>
+        <p>Applied NLP techniques to enable machines to understand, classify, and respond to text data — including tokenisation and sentiment analysis.</p>
+      </div>
+      <div class="project-card-bottom">
+        <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">NLP</span></div>
+        <a href="https://github.com/Ruthbaiby/Introduction-to-Natural-Language-Processing" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-tag">Data Collection</div>
+        <h3>Web Scraping — Netflix</h3>
+        <p>Scraped, cleaned, and structured Netflix data from the web using Python for downstream analysis and pattern discovery.</p>
+      </div>
+      <div class="project-card-bottom">
+        <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">BeautifulSoup</span></div>
+        <a href="https://github.com/Ruthbaiby/Web-Scraping-on-Netflix" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+    <div class="project-card reveal">
+      <div class="project-card-top">
+        <div class="project-tag">Predictive Analytics</div>
+        <h3>Forecasting</h3>
+        <p>Developed time series forecasting models to estimate and predict the direction of future trends across a structured dataset.</p>
+      </div>
+      <div class="project-card-bottom">
+        <div class="project-tech"><span class="tech-badge">Python</span><span class="tech-badge">Time Series</span></div>
+        <a href="https://github.com/Ruthbaiby/Introduction-to-Forecasting-" class="project-link" target="_blank">View →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Work<br><span>Together.</span></h2>
+      <div class="divider" style="margin-bottom:1.8rem;"></div>
+      <p>Have a data project in mind? Need research support or a compelling dashboard? I'd love to hear about it.</p>
+      <div class="contact-links">
+        <a href="mailto:ruth.olusanya@yahoo.com" class="contact-link-item">
+          <div class="contact-link-icon">✉</div>
+          <span>ruth.olusanya@yahoo.com</span>
+        </a>
+        <a href="https://github.com/Ruthbaiby/" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">⌥</div>
+          <span>github.com/Ruthbaiby</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ruth-olusanya" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">in</div>
+          <span>LinkedIn Profile</span>
+        </a>
+        <a href="https://www.twitter.com/holusanyahruth/" target="_blank" class="contact-link-item">
+          <div class="contact-link-icon">𝕏</div>
+          <span>@holusanyahruth</span>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Jane Smith" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@company.com" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" placeholder="Data Analysis Project" />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about your project or what you need help with..."></textarea>
+        </div>
+        <button class="btn btn-primary" style="align-self:flex-start;" onclick="alert('Thanks for your message! Ruth will be in touch soon.')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Ruth Olusanya. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="https://github.com/Ruthbaiby/" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/ruth-olusanya" target="_blank">LinkedIn</a>
+    <a href="https://www.twitter.com/holusanyahruth/" target="_blank">Twitter</a>
+    <a href="https://www.instagram.com/rutholusanya/" target="_blank">Instagram</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Animate skill bars on scroll
+  const bars = document.querySelectorAll('.skill-bar-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.width = el.style.width; // trigger reflow
+        barObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  bars.forEach(b => { const w = b.style.width; b.style.width = '0'; setTimeout(() => b.style.width = w, 300); barObserver.observe(b); });
+</script>
+</body>
 </html>
